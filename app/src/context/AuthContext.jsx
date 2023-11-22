@@ -12,7 +12,6 @@ export const AuthContextProvider = ({ children }) => {
         tag: "",
         email: "",
         password: "",
-        regToken: "",
     });
     const [loginError, setLoginError] = useState(null);
     const [isLoginLoading, setIsLoginLoading] = useState(false)
@@ -20,10 +19,6 @@ export const AuthContextProvider = ({ children }) => {
         email: "",
         password: "",
     });
-    const [pfp, newPfp] = useState ({
-        pfp: "",
-    });
-
     
     
 
@@ -41,10 +36,6 @@ export const AuthContextProvider = ({ children }) => {
     const updateLoginInfo = useCallback((info) => {
         setLoginInfo(info);
     }, [])
-
-    const updatePfp = useCallback((info) => {
-        newPfp(info);
-    })
 
     const registerUser = useCallback(async(e) => {
         e.preventDefault()
@@ -89,26 +80,6 @@ export const AuthContextProvider = ({ children }) => {
     }, [loginInfo])
 
 
-    const setPfp = useCallback(async(e) => {
-        e.preventDefault()
-
-        const file = e.target.file
-        const fr = new FileReader();
-        console.log(file)
-        const altfile = document.getElementById("fileEl")
-        fr.readAsDataURL(altfile.files[0])
-        fr.addEventListener('load', () => {
-            const url = fr.result;
-            console.log(url);
-        })
-
-        const cart = localStorage.getItem("user")
-        cart.pfp = url
-        
-        localStorage.setItem("User", JSON.stringify(cart))
-        console.log(cart);
-
-    }, [pfp])
 
 
     const logoutUser = useCallback(() => {
@@ -129,7 +100,6 @@ export const AuthContextProvider = ({ children }) => {
                 loginInfo,
                 updateLoginInfo,
                 isLoginLoading,
-                setPfp,
             }}>
                 {children}
             </AuthContext.Provider>

@@ -9,8 +9,6 @@ const Register = () => {
     return ( <>
         
         <Form onSubmit={registerUser}>
-            <Row className="form-reg-row">
-                <Col xs={6} className="log-a">
                 <Stack gap={3}>
                     <h2>Register</h2>
                     <div>
@@ -25,13 +23,8 @@ const Register = () => {
                     </div>
                     <div>
                     <h3>Password</h3>
-                    <Form.Control type="text" placeholder="" onChange={(e) => updateRegisterInfo
+                    <Form.Control type="password" placeholder="" onChange={(e) => updateRegisterInfo
                         ({...registerInfo, password: e.target.value})}/>
-                    </div>
-                    <div>
-                    <h3>Token</h3>
-                    <Form.Control type="text" placeholder="" onChange={(e) => updateRegisterInfo
-                        ({...registerInfo, regToken: e.target.value})}/>
                     </div>
                     <Button className="logger-btn" variant="primary" type="submit">
                         {isRegisterLoading ? "Loading..." : "Join Now"}
@@ -42,15 +35,6 @@ const Register = () => {
                         }
                     <Link to="/Login">I already have an account</Link>
                 </Stack>
-
-                </Col>
-                <Col className="log-b">
-                    <div className="img-cont">
-                        <img src="https://i.ibb.co/9sgTJPK/svgviewer-png-output.png" alt="" />
-                    </div>
-                    <h2>Join Now!</h2>
-                </Col>
-            </Row>
         </Form>
     </>);
 }

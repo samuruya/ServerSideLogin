@@ -13,7 +13,7 @@ const createToken = (_id) => {
 const registerUser = async(req, res) => {
     
     try{
-        const {tag, email, password, regToken} = req.body
+        const {tag, email, password, } = req.body
 
         let user = await userModel.findOne({email}); //check for user 
         let tagger = await userModel.findOne({tag}); //
@@ -24,7 +24,7 @@ const registerUser = async(req, res) => {
         if(tagger) 
             return res.status(400).json("this name is already taken"); // error msg if email is already taken
         //validating user input
-        if(!tag || !email || !password || !regToken) 
+        if(!tag || !email || !password) 
             return res.status(400).json("please fill all the fields");
     
         if(!validator.isEmail(email)) 
@@ -32,9 +32,6 @@ const registerUser = async(req, res) => {
     
         if(password.length <= 3)
             return res.status(400).json("your password needs to be atleast 4 chars long");
-        
-        if(regToken != process.env.LOGTOKEN)
-            return res.status(400).json("wrong entry token");
         
         const bio = "No Bio Yet";
         const pfp = "https://i.ibb.co/m8bCySY/83bc8b88cf6bc4b4e04d153a418cde62.jpg";

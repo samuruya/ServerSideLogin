@@ -13,11 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --text: rgb(250, 255, 252);
-  --background: rgb(0, 10, 4);
-  --primary: rgb(57, 249, 217);
-  --secondary: rgb(1, 23, 35);
-  --accent: rgb(7, 157, 233);
+  --text: #fefdfb;
+  --background: #040301;
+  --primary: #7481c8;
+  --secondary: #110712;
+  --accent: #4150a4;
+  
 
 }
 
