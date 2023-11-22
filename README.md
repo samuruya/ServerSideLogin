@@ -42,11 +42,16 @@ VSCode:
 code .env
 ```
 
-#### Set your port in the `.env`
+#### Set your port and secret in the `.env`
 
 The client uses the port `2020` but you can change the baseurl value for the client  in `./app/src/utils/services.js`
 ```.env
 PORT="2020"
+```
+
+And set a JWT key
+```.env
+JWT_SECRET_KEY="YOURRANDOMSTRING"
 ```
 
 than run:
