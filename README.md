@@ -57,6 +57,11 @@ npm i
 #### now you only need to [setup the Database](#Database) and you should be good to go
 
 
+#### Run server in dev mode:
+```bash
+npm run dev
+```
+
 # Client
 
 #### client node modules: 
@@ -75,6 +80,11 @@ npm i
 npm i
 ```
 
+
+#### Run client in dev mode:
+```bash
+npm run dev
+```
 
 # Database
 
